@@ -1,0 +1,10 @@
+<h1>Customer Details</h1>
+<div *ngIf="customer">
+<h2>{{customer.id}}</h2>
+<h3>{{customer.firstName}} {{customer.lastName}}</h3>
+  <button routerLink="/customers">Back</button>
+</div>
+<div *ngIf="!customer">
+<h2>Customer nut found</h2>
+  <button routerLink="/customers">Back</button>
+</div>

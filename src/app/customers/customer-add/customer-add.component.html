@@ -1,0 +1,21 @@
+<h1>Add Customer</h1>
+<div>
+
+</div>
+
+<form [formGroup]="customerForm" (ngSubmit)="save()">
+
+  First Name:
+  <label>
+  <input type="text" formControlName="firstName">
+ </label>
+
+  <label>
+  Last Name:
+  <input type="text" formControlName="lastName">
+
+ </label>
+
+   <button type="submit" >Save</button>
+</form>
+<button routerLink="/customers">Back</button>
