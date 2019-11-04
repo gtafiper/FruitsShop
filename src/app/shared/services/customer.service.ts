@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Customer} from '../models/customer';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { AuthenticationService } from './authentication.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +19,14 @@ export class CustomerService {
   id = 1;
   apiUrl = 'http://fruitshop.azurewebsites.net/api/Customer';
 
-  constructor(private http: HttpClient) { this.customers  = [{id: this.id++ , firstName: 'kghsd', lastName: 'sdv' }]; }
+
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService)
+  { this.customers  = [{id: this.id++ , firstName: 'kghsd', lastName: 'sdv' }]; }
 
   getCustomers(): Observable<Customer[]> {
-   return  this.http.get<Customer[]> (this.apiUrl);
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', 'Bearer ' + this.authenticationService.getToken());
+    return  this.http.get<Customer[]> (this.apiUrl);
   }
 
   // tslint:disable-next-line:no-shadowed-variable

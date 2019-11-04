@@ -11,9 +11,11 @@ import { CustomerAddComponent } from './customers/customer-add/customer-add.comp
 import {ReactiveFormsModule} from '@angular/forms';
 import { CustomerUpdateComponent } from './customers/customer-update/customer-update.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from '../app/login/login.component';
+import { GuardsComponent } from './guards/guards.component';
 
 @NgModule({
-  declarations: [
+    declarations: [
     AppComponent,
     CustomersListComponent,
     NavbarComponent,
@@ -21,7 +23,10 @@ import {HttpClientModule} from '@angular/common/http';
     CustomerDetailsComponent,
     CustomerAddComponent,
     CustomerUpdateComponent,
+    LoginComponent,
+    GuardsComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
