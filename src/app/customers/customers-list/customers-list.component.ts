@@ -16,16 +16,17 @@ export class CustomersListComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.refrece();
+     this.refresh();
   }
-refrece() {
+
+  refresh() {
   this.customerService.getCustomers().subscribe(listOfCustomers => this.customers = listOfCustomers);
 }
 
   delete(id: number) {
    this.customerService.deleteCustomer(id)
      .subscribe(message => {
-       this.refrece();
+       this.refresh();
    });
 }
 }
