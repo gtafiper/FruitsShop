@@ -2,3 +2,9 @@
 {
   background-color: #4CAF50;
 }
+
+.main
+{
+  float: left;
+  flood-color: aqua;
+}

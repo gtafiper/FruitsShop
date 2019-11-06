@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from '../app/login/login.component';
 import { AuthGuard } from './guards/guards.component';
 import {AuthenticationService} from './shared/services/authentication.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import {AuthenticationService} from './shared/services/authentication.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     AuthGuard,

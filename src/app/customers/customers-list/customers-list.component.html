@@ -1,10 +1,25 @@
 <ul *ngIf="customers">
-  <li *ngFor="let Customer of customers">
-    <a routerLink="/customers/{{Customer.id}}" > {{Customer.id}} {{Customer.firstName}} {{Customer.lastName}}</a>
-<button class="button" routerLink='/customer-update/{{Customer.id}}'>Update</button>
-    <button class="button" (click)="delete (Customer.id)">Delete</button>
-  </li>
+
+
+    <div *ngFor="let Customer of customers" class="card" >
+      <img class="card-img-top" length="60px" src="https://icon-library.net/images/blank-person-icon/blank-person-icon-1.jpg" >
+      <div class="card-body">
+        <a  routerLink="/customers/{{Customer.id}}" > {{Customer.id}} {{Customer.firstName}} {{Customer.lastName}}</a>
+        <div></div>
+        <button class="button" routerLink='/customer-update/{{Customer.id}}'>Update</button>
+
+        <button class="button" (click)="delete (Customer.id)">Delete</button>
+      </div>
+    </div>
+
+
+
+
+
+
 
 </ul>
 <h2 *ngIf="!customers">Loading Customers</h2>
 <button routerLink="/customer-add">Add Customers</button>
+
+
