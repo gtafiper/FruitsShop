@@ -6,14 +6,16 @@ import {CommonModule} from '@angular/common';
 import {CustomerDetailsComponent} from './customers/customer-details/customer-details.component';
 import {CustomerAddComponent} from './customers/customer-add/customer-add.component';
 import {CustomerUpdateComponent} from './customers/customer-update/customer-update.component';
-
+import {AuthGuard} from '../app/guards/guards.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-  {path: '', component: WelcomeComponent },
-  {path: 'customers/:id', component: CustomerDetailsComponent },
-  {path: 'customers', component: CustomersListComponent },
-  {path: 'customer-add', component: CustomerAddComponent },
-  {path: 'customer-update/:id', component: CustomerUpdateComponent },
+  {path: 'login', component: LoginComponent},
+  {path: '', component: WelcomeComponent, canActivate: [AuthGuard] },
+  {path: 'customers/:id', component: CustomerDetailsComponent, canActivate: [AuthGuard] },
+  {path: 'customers', component: CustomersListComponent, canActivate: [AuthGuard] },
+  {path: 'customer-add', component: CustomerAddComponent, canActivate: [AuthGuard] },
+  {path: 'customer-update/:id', component: CustomerUpdateComponent, canActivate: [AuthGuard] },
 
 ];
 

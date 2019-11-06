@@ -12,7 +12,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { CustomerUpdateComponent } from './customers/customer-update/customer-update.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from '../app/login/login.component';
-import { GuardsComponent } from './guards/guards.component';
+import { AuthGuard } from './guards/guards.component';
+import {AuthenticationService} from './shared/services/authentication.service';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,7 @@ import { GuardsComponent } from './guards/guards.component';
     CustomerAddComponent,
     CustomerUpdateComponent,
     LoginComponent,
-    GuardsComponent,
+
   ],
 
   imports: [
@@ -33,7 +34,10 @@ import { GuardsComponent } from './guards/guards.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

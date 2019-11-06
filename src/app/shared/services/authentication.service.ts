@@ -10,12 +10,13 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post<any>(environment.apiUrl + '/token', { username, password })
+    console.log('hej');
+    return this.http.post<any>(environment.apiUrl + 'token', {username, password})
       .pipe(map(response => {
         const token = response.token;
 
         if (token) {
-
+          // sessionStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }))
           localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
 
           return true;

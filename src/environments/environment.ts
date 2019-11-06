@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://fruitshop.azurewebsites.net/api/'
+  apiUrl: 'https://fruitshop.azurewebsites.net/api/'
 };
 
 /*

@@ -17,7 +17,7 @@ const httpOptions = {
 export class CustomerService {
   customers: Customer[];
   id = 1;
-  apiUrl = 'http://fruitshop.azurewebsites.net/api/Customer';
+  apiUrl = 'https://fruitshop.azurewebsites.net/api/Customer';
 
 
   constructor(private http: HttpClient, private authenticationService: AuthenticationService)
