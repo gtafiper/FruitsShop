@@ -1,16 +1,20 @@
 <ul *ngIf="customers">
 
+  <div class="row" style="padding: 10px">
 
-    <div *ngFor="let Customer of customers" class="card" >
+    <div *ngFor="let Customer of customers" class="card" style="margin: 5px">
+
       <img class="card-img-top" length="60px" src="https://icon-library.net/images/blank-person-icon/blank-person-icon-1.jpg" >
       <div class="card-body">
         <a  routerLink="/customers/{{Customer.id}}" > {{Customer.id}} {{Customer.firstName}} {{Customer.lastName}}</a>
         <div></div>
-        <button class="button" routerLink='/customer-update/{{Customer.id}}'>Update</button>
+        <button class="button" style="alignment: left" routerLink='/customer-update/{{Customer.id}}'>Update</button>
 
-        <button class="button" (click)="delete (Customer.id)">Delete</button>
+        <button class="button" style="alignment: left" (click)="delete (Customer.id)">Delete</button>
+      </div>
       </div>
     </div>
+
 
 
 
