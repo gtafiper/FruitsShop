@@ -1,9 +1,32 @@
+
+
 <h1>Customer Details</h1>
 <div *ngIf="customer">
-<h2>{{customer.id}}</h2>
-<h3>{{customer.firstName}} {{customer.lastName}}</h3>
-  <button routerLink="/customers">Back</button>
+<h2>Id Nr. {{customer.id}}</h2>
+<h3>First Name: {{customer.firstName}}</h3>
+  <h3>Last Name: {{customer.lastName}}</h3>
+  <h5>Adress: {{customer.address}}</h5>
+  <div *ngFor="let orders of customer.orders" class="accordion" id="ordersInfo" >div
+  <div class="card">
+    <div class="card-header" id = "headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         Order Of id: {{orders.id}}
+        </button>
+      </h2>
+    </div>
+  </div>
+
+
+  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div class="card-body">
+    order Id: {{orders.id}}
+    </div>
+  </div>
 </div>
+
+  <button routerLink="/customers">Back</button>
+
 <div *ngIf="!customer">
 <h2>Customer nut found</h2>
   <button routerLink="/customers">Back</button>

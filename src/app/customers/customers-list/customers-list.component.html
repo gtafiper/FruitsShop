@@ -4,7 +4,7 @@
 
     <div *ngFor="let Customer of customers" class="card" style="margin: 5px">
 
-      <img class="card-img-top" length="60px" src="https://icon-library.net/images/blank-person-icon/blank-person-icon-1.jpg" >
+      <img class="card-img-top" routerLink="/customers/{{Customer.id}}"  length="60px" src="https://icon-library.net/images/blank-person-icon/blank-person-icon-1.jpg" >
       <div class="card-body">
         <a  routerLink="/customers/{{Customer.id}}" > {{Customer.id}} {{Customer.firstName}} {{Customer.lastName}}</a>
         <div></div>

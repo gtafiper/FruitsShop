@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Customer} from '../../shared/models/customer';
 import {CustomerService} from '../../shared/services/customer.service';
 import {ActivatedRoute} from '@angular/router';
+import {Orders} from '../../shared/models/Order';
 
 @Component({
   selector: 'app-customer-details',
@@ -10,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CustomerDetailsComponent implements OnInit {
   customer: Customer;
+  orders: Orders[];
   constructor(
     private route: ActivatedRoute,
     private customerService: CustomerService) { }

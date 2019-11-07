@@ -3,6 +3,7 @@ import {Customer} from '../models/customer';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { AuthenticationService } from './authentication.service';
+import {Orders} from '../models/Order';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,15 +14,16 @@ const httpOptions = {
 
 @Injectable({
   providedIn: 'root'
+
 })
 export class CustomerService {
   customers: Customer[];
   id = 1;
   apiUrl = 'https://fruitshop.azurewebsites.net/api/Customer';
-
+  orders: Orders[]
 
   constructor(private http: HttpClient, private authenticationService: AuthenticationService)
-  { this.customers  = [{id: this.id++ , firstName: 'kghsd', lastName: 'sdv' }]; }
+  {  }
 
   getCustomers(): Observable<Customer[]> {
     httpOptions.headers =
